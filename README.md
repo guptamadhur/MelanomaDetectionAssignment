@@ -1,1 +1,1 @@
-# MelanomaDetectionAssignment
+# Melanoma Detection Assignment
