@@ -8,9 +8,7 @@
 * [Motivation 🎯](#motivation)
 * [Objectives 🎯](#objectives)
 * [Model Architecture 📝](#model-architecture)
-* [Data Description 💾](#data-description) 
-* [Exploratory Data Analysis Steps 🔍](#exploratory-data-analysis-steps)
-* [Conclusion from the analysis](#conclusion-from-the-analysis)
+* [Conclusion from the analysis 🔍](#conclusion-from-the-analysis)
 * [Technologies Used](#technologies-used)
 * [Acknowledgements](#acknowledgements)
 * [Contributors](#Contributors)
@@ -22,11 +20,13 @@
 In cancer, there are over 200 different forms. Out of 200, melanoma is the deadliest form of skin cancer. The diagnostic procedure for melanoma starts with clinical screening, followed by dermoscopic analysis and histopathological examination. Melanoma skin cancer is highly curable if it gets identified at the early stages. The first step of Melanoma skin cancer diagnosis is to conduct a visual examination of the skin's affected area. Dermatologists take the dermatoscopic images of the skin lesions by the high-speed camera, which have an accuracy of 65-80% in the melanoma diagnosis without any additional technical support. With further visual examination by cancer treatment specialists and dermatoscopic images, the overall prediction rate of melanoma diagnosis raised to 75-84% accuracy. The project aims to build an automated classification system based on image processing techniques to classify skin cancer using skin lesions images.
 
 ## Problem Statement
+
  In the skin biopsy, the dermatologist takes some part of the skin lesion and examines it under the microscope. The current process takes almost a week or more, starting from getting a dermatologist appointment to getting a biopsy report.
  The aims to shorten the current gap to just a couple of days by providing the predictive model.
  The approach uses Convolutional Neural Network (CNN) to classify nine types of skin cancer from outlier lesions images. This reduction of a gap has the opportunity to impact millions of people positively.
 
 ## Motivation
+
   The overarching goal is to support the efforts to reduce the death caused by skin cancer. The primary motivation that drives the project is to use the advanced image classification technology for the well-being of the people. Computer vision has made good progress in machine learning and deep learning that are scalable across domains.
 
 ## Objectives
@@ -81,183 +81,16 @@ A convolution converts all the pixels in its receptive field into a single value
 10. **Training**: The model is trained using the `fit` method with the specified number of epochs (`epochs=50`). The `ModelCheckpoint` and `EarlyStopping` callbacks are employed to monitor the validation accuracy during training. The `ModelCheckpoint` callback saves the model with the best validation accuracy, while the `EarlyStopping` callback stops training if the validation accuracy does not improve for a specified number of epochs (patience=5 in this case). These callbacks help prevent overfitting and ensure that the model converges to the best possible solution.
 
 11. **Activation Function(ReLU)**: The rectified linear activation function or ReLU for short is a piecewise linear function that will output the input directly if it is positive, otherwise, it will output zero.The rectified linear activation function overcomes the vanishing gradient problem, allowing models to learn faster and perform better.
+
 12. **Activation Function(Softmax)**: The softmax function is used as the activation function in the output layer of neural network models that predict a multinomial probability distribution. The main advantage of using Softmax is the output probabilities range. The range will 0 to 1, and the sum of all the probabilities will be equal to one.
-
-<!-- You don't have to answer all the questions - just the ones relevant to your project. -->
-
-## Data Description
-
-Here is the information on this particular data set:
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>LoanStatNew</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>loan_amnt</td>
-      <td>The listed amount of the loan applied for by the borrower. If at some point in time, the credit department reduces the loan amount, then it will be reflected in this value.</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>term</td>
-      <td>The number of payments on the loan. Values are in months and can be either 36 or 60.</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>int_rate</td>
-      <td>Interest Rate on the loan</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>installment</td>
-      <td>The monthly payment owed by the borrower if the loan originates.</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>grade</td>
-      <td>LC assigned loan grade</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>sub_grade</td>
-      <td>LC assigned loan subgrade</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>emp_title</td>
-      <td>The job title supplied by the Borrower when applying for the loan.*</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>emp_length</td>
-      <td>Employment length in years. Possible values are between 0 and 10 where 0 means less than one year and 10 means ten or more years.</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>home_ownership</td>
-      <td>The home ownership status provided by the borrower during registration or obtained from the credit report. Our values are: RENT, OWN, MORTGAGE, OTHER</td>
-    </tr>
-    <tr>
-      <th>9</th>
-      <td>annual_inc</td>
-      <td>The self-reported annual income provided by the borrower during registration.</td>
-    </tr>
-    <tr>
-      <th>10</th>
-      <td>verification_status</td>
-      <td>Indicates if income was verified by LC, not verified, or if the income source was verified</td>
-    </tr>
-    <tr>
-      <th>11</th>
-      <td>issue_d</td>
-      <td>The month which the loan was funded</td>
-    </tr>
-    <tr>
-      <th>12</th>
-      <td>loan_status</td>
-      <td>Current status of the loan</td>
-    </tr>
-    <tr>
-      <th>13</th>
-      <td>purpose</td>
-      <td>A category provided by the borrower for the loan request.</td>
-    </tr>
-    <tr>
-      <th>14</th>
-      <td>title</td>
-      <td>The loan title provided by the borrower</td>
-    </tr>
-    <tr>
-      <th>15</th>
-      <td>zip_code</td>
-      <td>The first 3 numbers of the zip code provided by the borrower in the loan application.</td>
-    </tr>
-    <tr>
-      <th>16</th>
-      <td>addr_state</td>
-      <td>The state provided by the borrower in the loan application</td>
-    </tr>
-    <tr>
-      <th>17</th>
-      <td>dti</td>
-      <td>A ratio calculated using the borrower’s total monthly debt payments on the total debt obligations, excluding mortgage and the requested LC loan, divided by the borrower’s self-reported monthly income.</td>
-    </tr>
-    <tr>
-      <th>18</th>
-      <td>earliest_cr_line</td>
-      <td>The month the borrower's earliest reported credit line was opened</td>
-    </tr>
-    <tr>
-      <th>19</th>
-      <td>open_acc</td>
-      <td>The number of open credit lines in the borrower's credit file.</td>
-    </tr>
-    <tr>
-      <th>20</th>
-      <td>pub_rec</td>
-      <td>Number of derogatory public records</td>
-    </tr>
-    <tr>
-      <th>21</th>
-      <td>revol_bal</td>
-      <td>Total credit revolving balance</td>
-    </tr>
-    <tr>
-      <th>22</th>
-      <td>revol_util</td>
-      <td>Revolving line utilization rate, or the amount of credit the borrower is using relative to all available revolving credit.</td>
-    </tr>
-    <tr>
-      <th>23</th>
-      <td>total_acc</td>
-      <td>The total number of credit lines currently in the borrower's credit file</td>
-    </tr>
-    <tr>
-      <th>24</th>
-      <td>initial_list_status</td>
-      <td>The initial listing status of the loan. Possible values are – W, F</td>
-    </tr>
-    <tr>
-      <th>25</th>
-      <td>application_type</td>
-      <td>Indicates whether the loan is an individual application or a joint application with two co-borrowers</td>
-    </tr>
-    <tr>
-      <th>26</th>
-      <td>mort_acc</td>
-      <td>Number of mortgage accounts.</td>
-    </tr>
-    <tr>
-      <th>27</th>
-      <td>pub_rec_bankruptcies</td>
-      <td>Number of public record bankruptcies</td>
-    </tr>
-  </tbody>
-</table>
-
-## Exploratory Data Analysis Steps
-- Step 1: Import the necessary libraries
-- Step 2: Remove Null Values from the Dataset
-- Step 3: Removing single values columns
-- Step 4: Data preparation
-- Step 5: Standardizing the data to plot graphs
-- Step 6: Outlier Treatment
-- Step 7: Visualizing Categorical Data
-    - Step 7.1: Univariate
-    - Step 7.2: Bivariate Analysis
 
 ## Conclusion from the analysis
 
-## Model Summary
+### Model Summary
 
 ![Model Architecture](./image/model_summary.png)
 
-## Model Evaluation
+### Model Evaluation
 
 ![Model Evaluation](./image/model_evaluation.png)
 
