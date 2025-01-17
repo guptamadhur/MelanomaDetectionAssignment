@@ -123,7 +123,7 @@ Give credit here.
 ## Contact
 Created by [@guptamadhur](https://github.com/guptamadhur/) - feel free to contact me!
 
-Developed as part of the Exploratory Data Analysis Module required for Post Graduate Diploma in Machine Learning and AI - IIIT, Bangalore by Upgrad.
+Developed as part of the Melanoma Detection Assignment required for Post Graduate Diploma in Machine Learning and AI - IIIT, Bangalore by Upgrad.
 
 <!-- Optional -->
 <!-- ## License -->
